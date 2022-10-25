@@ -1,0 +1,15 @@
+<% if flash[:error].present? %>
+<h3>エラーがあります。</h3>
+<ul>
+    <% flash[:error].each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+</ul>
+<% end %>
+<%= form_for @products , url: {action: :create } do |f| %>
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name %>
+    <p><%= f.label :price, '価格' %>
+    <%= f.text_field :price%></p>
+    <%= f.submit '決定' %>
+<% end %>
